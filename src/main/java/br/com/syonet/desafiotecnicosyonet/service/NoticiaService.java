@@ -7,4 +7,5 @@ import java.util.List;
 public interface NoticiaService {
 	Noticia insert(Noticia noticia);
 	List<Noticia> findAllNaoProcessado();
+	void processaNoticias(List<Long> ids);
 }

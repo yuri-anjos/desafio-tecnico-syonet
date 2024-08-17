@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .newsletter-list {
+            margin: 1em;
+        }
+
+        .newsletter-content {
+            display: block;
+            margin: 2em 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Bom dia <span th:text="${nome}">User</span>!</h1>
+
+    <h2 th:if="${isAniversario}">Feliz Aniversário!</h2>
+
+    <div class="newsletter-list">
+        <div class="newsletter-content" th:each="noticia : ${noticias}">
+            <p><a th:href="${noticia.url}"><span th:text="${noticia.titulo}">Titulo</span></a></p>
+            <p><span th:text="${noticia.descricao}">Descricao</span></p>
+        </div>
+    </div>
+
+</body>
+</html>
