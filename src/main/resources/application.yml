@@ -1,3 +1,10 @@
 spring:
     application:
         name: desafio-tecnico-syonet
+    datasource:
+        url: jdbc:h2:mem:syonet
+        username: user123
+        password: user123
+        driverClassName: org.h2.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
