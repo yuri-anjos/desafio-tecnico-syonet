@@ -30,6 +30,13 @@ public class Cliente {
 	public Cliente() {
 	}
 
+	public Cliente(Long id, String nome, String email, LocalDate nascimento) {
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.nascimento = nascimento;
+	}
+
 	public Long getId() {
 		return id;
 	}

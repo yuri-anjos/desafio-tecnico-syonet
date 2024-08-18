@@ -22,11 +22,11 @@ public class ClienteController {
 
 	@GetMapping
 	public List<Cliente> findAll(){
-		return service.findAll();
+		return service.buscarTodos();
 	}
 
 	@PostMapping
 	public Cliente insert(@RequestBody Cliente cliente){
-		return service.insert(cliente);
+		return service.inserir(cliente);
 	}
 }

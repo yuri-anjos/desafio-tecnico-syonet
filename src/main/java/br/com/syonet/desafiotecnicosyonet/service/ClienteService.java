@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ClienteService {
 
-	Cliente insert(Cliente cliente);
-	List<Cliente> findAll();
+	Cliente inserir(Cliente cliente);
 
+	List<Cliente> buscarTodos();
 }

@@ -37,6 +37,14 @@ public class Noticia {
 	public Noticia() {
 	}
 
+	public Noticia(Long id, String titulo, String descricao, String url, Boolean processado) {
+		this.id = id;
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.url = url;
+		this.processado = processado;
+	}
+
 	public Long getId() {
 		return id;
 	}

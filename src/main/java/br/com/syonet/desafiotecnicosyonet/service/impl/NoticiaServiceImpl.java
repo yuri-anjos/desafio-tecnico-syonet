@@ -18,18 +18,18 @@ public class NoticiaServiceImpl implements NoticiaService {
 	}
 
 	@Override
-	public Noticia insert(Noticia noticia) {
+	public Noticia inserir(Noticia noticia) {
 		return repository.save(noticia);
 	}
 
 	@Override
-	public List<Noticia> findAllNaoProcessado() {
-		return repository.findByProcessado(Boolean.FALSE);
+	public List<Noticia> buscarNoticiasNaoProcessadas() {
+		return repository.buscarNoticiasNaoProcessadas(Boolean.FALSE);
 	}
 
 	@Override
 	@Transactional
-	public void processaNoticias(List<Long> ids) {
-		repository.processaNoticias(ids);
+	public void processarNoticias(List<Long> ids) {
+		repository.processarNoticias(ids);
 	}
 }

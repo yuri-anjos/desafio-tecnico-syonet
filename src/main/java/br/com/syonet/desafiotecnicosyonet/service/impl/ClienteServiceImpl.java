@@ -17,13 +17,13 @@ public class ClienteServiceImpl implements ClienteService {
 	}
 
 	@Override
-	public Cliente insert(Cliente cliente) {
+	public Cliente inserir(Cliente cliente) {
 		cliente.setId(null);
 		return repository.save(cliente);
 	}
 
 	@Override
-	public List<Cliente> findAll() {
+	public List<Cliente> buscarTodos() {
 		return repository.findAll();
 	}
 }

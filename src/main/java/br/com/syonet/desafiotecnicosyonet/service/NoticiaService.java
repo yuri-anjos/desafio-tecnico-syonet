@@ -5,7 +5,9 @@ import br.com.syonet.desafiotecnicosyonet.model.Noticia;
 import java.util.List;
 
 public interface NoticiaService {
-	Noticia insert(Noticia noticia);
-	List<Noticia> findAllNaoProcessado();
-	void processaNoticias(List<Long> ids);
+	Noticia inserir(Noticia noticia);
+
+	List<Noticia> buscarNoticiasNaoProcessadas();
+
+	void processarNoticias(List<Long> ids);
 }

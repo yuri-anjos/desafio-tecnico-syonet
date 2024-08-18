@@ -21,12 +21,12 @@ public class NoticiaController {
 	}
 
 	@GetMapping
-	public List<Noticia> findAll(){
-		return service.findAllNaoProcessado();
+	public List<Noticia> buscarNoticiasNaoProcessadas(){
+		return service.buscarNoticiasNaoProcessadas();
 	}
 
 	@PostMapping
-	public Noticia insert(@RequestBody Noticia noticia){
-		return service.insert(noticia);
+	public Noticia inserir(@RequestBody Noticia noticia){
+		return service.inserir(noticia);
 	}
 }

@@ -16,7 +16,7 @@ public class EmailServiceImpl implements EmailService {
 		this.javaMailSender = javaMailSender;
 	}
 
-	public void sendHtmlMessage(String to, String subject, String htmlContent) {
+	public void enviarMensagemHtml(String to, String subject, String htmlContent) {
 		try {
 			MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
