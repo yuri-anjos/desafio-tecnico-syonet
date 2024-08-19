@@ -1,12 +1,12 @@
 insert into cliente (email, nascimento, nome) values (
-    'yuri.dos.4njos@gmail.com',
-    '2002-08-18',
+    'teste@gmail.com',
+    '2002-08-22',
     'Yuri'
 );
 
 insert into cliente (email, nascimento, nome) values (
-    'yuri.dos.4njos@gmail.com',
-    '2002-08-17',
+    'teste@gmail.com',
+    '2002-08-21',
     'Yuri'
 );
 

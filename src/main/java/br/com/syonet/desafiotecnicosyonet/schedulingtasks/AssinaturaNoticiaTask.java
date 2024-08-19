@@ -35,8 +35,7 @@ public class AssinaturaNoticiaTask {
 		this.templateEngine = templateEngine;
 	}
 
-	@Scheduled(fixedRate = 5000) // Executa a cada 10 segundos
-//	@Scheduled(cron = "0 0 8 * * *") // Executa as 08h todos os dias
+	@Scheduled(cron = "0 0 8 * * *")
 	public void execute() {
 		log.info("AssinaturaNoticiaTask: Iniciando a execução da tarefa agendada");
 		try {
