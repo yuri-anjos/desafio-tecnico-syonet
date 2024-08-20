@@ -8,7 +8,9 @@ public class NoticiaCreateDTO {
 	private String titulo;
 	@NotEmpty
 	private String descricao;
-	@Pattern(regexp = "^(http|https)://.*$", message = "URL inválida!", flags = {Pattern.Flag.CASE_INSENSITIVE})
+	@Pattern(regexp = "^(http|https)://.*$",
+			message = "URL inválida!",
+			flags = {Pattern.Flag.CASE_INSENSITIVE})
 	private String url;
 
 	public NoticiaCreateDTO() {
