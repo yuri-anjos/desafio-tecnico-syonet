@@ -1,5 +1,6 @@
 package br.com.syonet.desafiotecnicosyonet.model;
 
+import br.com.syonet.desafiotecnicosyonet.dto.NoticiaCreateDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class Noticia {
 	private Boolean processado;
 
 	@PrePersist
-	public void prePersist(){
+	public void prePersist() {
 		processado = Boolean.FALSE;
 	}
 
@@ -43,6 +44,12 @@ public class Noticia {
 		this.descricao = descricao;
 		this.url = url;
 		this.processado = processado;
+	}
+
+	public Noticia(NoticiaCreateDTO dto) {
+		this.titulo = dto.getTitulo();
+		this.descricao = dto.getDescricao();
+		this.url = dto.getUrl();
 	}
 
 	public Long getId() {

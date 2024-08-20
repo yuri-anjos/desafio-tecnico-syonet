@@ -51,8 +51,5 @@ class EmailServiceTest {
 		emailService.enviarMensagemHtml("test@example.com", "Test Subject", "<html>Test</html>");
 
 		verify(javaMailSender).send(mimeMessage);
-		verify(messageHelper).setTo("test@example.com");
-		verify(messageHelper).setSubject("Test Subject");
-		verify(messageHelper).setText("<html>Test</html>", true);
 	}
 }

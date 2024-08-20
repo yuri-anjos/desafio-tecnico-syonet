@@ -18,7 +18,6 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	public Cliente inserir(Cliente cliente) {
-		cliente.setId(null);
 		return repository.save(cliente);
 	}
 

@@ -1,5 +1,6 @@
 package br.com.syonet.desafiotecnicosyonet.model;
 
+import br.com.syonet.desafiotecnicosyonet.dto.ClienteCreateDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,6 +36,12 @@ public class Cliente {
 		this.nome = nome;
 		this.email = email;
 		this.nascimento = nascimento;
+	}
+
+	public Cliente(ClienteCreateDTO dto) {
+		this.nome = dto.getNome();
+		this.email = dto.getEmail();
+		this.nascimento = dto.getNascimento();
 	}
 
 	public Long getId() {
