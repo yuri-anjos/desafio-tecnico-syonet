@@ -2,14 +2,10 @@
 Desafio Técnico de Backend: Sistema de Cadastro e Envio de Newsletter
 
 ### Objetivo 
-Criar um sistema backend que permita o cadastro e envio de e-mails de newsletter. O sistema deve oferecer uma API Web para cadastro de clientes e notícias, e disparar e-mails diários com as notí-cias cadastradas e não processadas.
+Criar um sistema backend que permita o cadastro e envio de e-mails de newsletter. O sistema deve oferecer uma API Web para cadastro de clientes e notícias, e disparar e-mails diários com as notícias cadastradas e não processadas.
 
 ### Tecnologias
 flyway, spring-boot-starter-mail, thymeleaf, h2-database
-
-### Melhorias futuras
-- Teste de integração;
-- Utilização de Threads, para garantir principalmente ESCALABILIDADE e DESEMPENHO; 
 
 # Como rodar o código
  
@@ -27,7 +23,4 @@ Acessar a configuração "Senhas de app" no GMAIL, cadastrar a aplicação e ger
 - H2_PASSWORD (senha de acesso ao H2)
 
 ### Executar comandos
-
-- ./mvnw clean install
 - ./mvnw spring-boot:run
-
