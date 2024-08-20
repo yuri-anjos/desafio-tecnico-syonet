@@ -110,6 +110,6 @@ class AssinaturaNoticiaTaskTest {
 		assinaturaNoticiaTask.execute();
 
 		verify(emailService).enviarMensagemHtml(cliente.getEmail(), assunto, htmlContent);
-		verify(noticiaService, never()).processarNoticias(anyList());
+		verify(noticiaService).processarNoticias(anyList());
 	}
 }

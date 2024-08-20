@@ -5,6 +5,7 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,6 +17,7 @@ public class EmailServiceImpl implements EmailService {
 		this.javaMailSender = javaMailSender;
 	}
 
+	@Async("taskExecutor")
 	public void enviarMensagemHtml(String to, String subject, String htmlContent) {
 		try {
 			MimeMessage mimeMessage = javaMailSender.createMimeMessage();

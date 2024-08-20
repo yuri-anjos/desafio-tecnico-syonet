@@ -38,34 +38,31 @@ public class AssinaturaNoticiaTask {
 	@Scheduled(cron = "0 0 8 * * *")
 	public void execute() {
 		log.info("AssinaturaNoticiaTask: Iniciando a execução da tarefa agendada");
-		try {
-			List<Noticia> noticiasNaoProcessadas = noticiaService.buscarNoticiasNaoProcessadas();
+		List<Noticia> noticiasNaoProcessadas = noticiaService.buscarNoticiasNaoProcessadas();
+		if (!noticiasNaoProcessadas.isEmpty()) {
+			List<Cliente> clientes = clienteService.buscarTodos();
 
-			if (!noticiasNaoProcessadas.isEmpty()) {
-				List<Cliente> clientes = clienteService.buscarTodos();
-				prepararEnvioEmail(noticiasNaoProcessadas, clientes);
-
-				log.info("AssinaturaNoticiaTask: Todos os emails foram enviados");
-				noticiaService.processarNoticias(noticiasNaoProcessadas.stream().map(Noticia::getId).toList());
+			for (Cliente cliente : clientes) {
+				enviarEmailParaCliente(cliente, noticiasNaoProcessadas);
 			}
-		} catch (Exception e) {
-			log.error("AssinaturaNoticiaTask: Erro durante a execução da tarefa agendada", e);
+
+			noticiaService.processarNoticias(noticiasNaoProcessadas.stream().map(Noticia::getId).toList());
 		}
 	}
 
-	private void prepararEnvioEmail(List<Noticia> noticiasNaoProcessadas, List<Cliente> clientes) {
+	private void enviarEmailParaCliente(Cliente cliente, List<Noticia> noticias) {
 		LocalDate currentDate = LocalDate.now();
 
 		Context context = new Context();
-		context.setVariable("noticias", noticiasNaoProcessadas);
+		context.setVariable("noticias", noticias);
+		context.setVariable("nome", cliente.getNome());
+		context.setVariable("isAniversario", DataUtils.datasNoMesmoDiaEMes(currentDate, cliente.getNascimento()));
 
-		for (Cliente cliente : clientes) {
-			context.setVariable("nome", cliente.getNome());
-			context.setVariable("isAniversario", DataUtils.datasNoMesmoDiaEMes(currentDate, cliente.getNascimento()));
-
+		try {
 			String htmlContent = templateEngine.process(NOTICIA_EMAIL_TEMPLATE, context);
-
 			emailService.enviarMensagemHtml(cliente.getEmail(), NOTICIA_ASSUNTO, htmlContent);
+		} catch (Exception e) {
+			log.error("Erro ao enviar email para {}", cliente.getNome(), e);
 		}
 	}
 }
